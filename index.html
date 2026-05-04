@@ -36,8 +36,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: var(--rosa-base);
-            background-image: url('https://www.transparenttextures.com/patterns/floral-snezes.png');
+            /* Fondo mejorado: Gradiente radial combinado con la textura */
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.7) 0%, var(--rosa-base) 80%),
+                        url('https://www.transparenttextures.com/patterns/floral-snezes.png');
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -69,14 +70,14 @@
             margin: 10px 0 0 0;
         }
 
-        /* Nuevo: Nombre en la portada */
+        /* Nombre en la portada (Mejorado con nuevo espaciado y sombra más suave) */
         .nombre-portada {
             font-family: 'Great Vibes', cursive;
             color: #d17896;
             font-size: 6rem;
-            margin: 5px 0 15px 0;
+            margin: 15px 0 25px 0; /* Más "aire" vertical */
             line-height: 1;
-            text-shadow: 2px 2px 5px rgba(209, 120, 150, 0.2);
+            text-shadow: 0px 4px 15px rgba(209, 120, 150, 0.4); /* Resplandor suave */
         }
 
         .fecha-portada {
@@ -90,6 +91,7 @@
             padding: 10px 0;
         }
 
+        /* Botón de apertura (Mejorado con animación y espaciado de letras) */
         .btn-abrir {
             display: inline-block;
             background-color: var(--dorado);
@@ -99,16 +101,26 @@
             border-radius: 30px;
             font-weight: 600;
             font-size: 1.1rem;
+            letter-spacing: 2px;
             margin-top: 40px;
             cursor: pointer;
             border: none;
             box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
             transition: all 0.3s ease;
+            animation: latido-dorado 2.5s infinite; /* Animación sutil de latido */
         }
 
         .btn-abrir:hover {
             background-color: #bfa135;
-            transform: scale(1.05);
+            transform: scale(1.05) !important; /* Fuerza el scale al hacer hover sobre la animación */
+            animation-play-state: paused;
+        }
+
+        /* Keyframes para la animación del botón */
+        @keyframes latido-dorado {
+            0% { transform: scale(1); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
+            50% { transform: scale(1.03); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
         }
 
         #portada-intro.oculto {
