@@ -166,6 +166,13 @@
             margin: 20px auto;
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
             background-color: #f0f0f0; 
+            
+            /* --- CÓDIGO AÑADIDO PARA EVITAR CLICS Y SELECCIÓN --- */
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+            /* ---------------------------------------------------- */
         }
 
         .seccion {
@@ -459,7 +466,6 @@
         <i class="fab fa-whatsapp"></i>
         <span class="texto-wa">Confirmar Asistencia</span>
     </a>
-
 
 <script>
     // --- LÓGICA DE APERTURA DE INVITACIÓN ---
