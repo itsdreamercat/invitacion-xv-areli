@@ -3,46 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="googlebot" content="noindex, nofollow">
-
-    <title>Mis XV Años - Areli Noriega Medina</title>
-    
+    <title>Mis XV Años - Areli</title>
     <link rel="icon" type="image/png" href="favicon.png">
-
-    <meta name="description" content="Tengo el honor de invitarte a celebrar esta noche mágica. Sábado, 16 de Mayo de 2026.">
-
-    <meta property="og:title" content="¡Estás invitado a mis XV Años! 👑">
-    <meta property="og:description" content="Acompáñame a celebrar este día tan especial. Areli Noriega Medina.">
-    <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1SNpcBoNueH5FAiwNEMzBYrxba0PGiUtw">
-    <meta property="og:type" content="website">
-
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         :root {
-            --rosa-base: #fce4ec;       
-            --rosa-acento: #f48fb1;     
+            --rosa-base: #fce4ec;       /* Rosa de fondo */
+            --rosa-acento: #f48fb1;     /* Rosa intermedio para tarjetas */
             --blanco: #ffffff;
             --dorado: #d4af37;
             --texto-oscuro: #5a5a5a;
-            --verde-wa: #25d366;        
+            --verde-wa: #25d366;        /* Color oficial de WhatsApp */
         }
         
-        body {
+        /* Estilos base del cuerpo */
+        body, html {
             margin: 0;
             padding: 0;
+            height: 100%;
             background-color: var(--rosa-base);
             background-image: url('https://www.transparenttextures.com/patterns/floral-snezes.png');
             font-family: 'Montserrat', sans-serif;
             color: var(--texto-oscuro);
             text-align: center;
-            overflow-x: hidden;
         }
 
+        /* --- 1. ESTILOS DE LA PORTADA DE BIENVENIDA (INTRO) --- */
+        #portada-intro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Fondo mejorado: Gradiente radial combinado con la textura */
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.7) 0%, var(--rosa-base) 80%),
+                        url('https://www.transparenttextures.com/patterns/floral-snezes.png');
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; 
+            transition: opacity 0.8s ease-out, visibility 0.8s ease-out; 
+        }
+
+        .portada-contenido {
+            max-width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Ícono de la corona usando FontAwesome */
+        .icono-portada {
+            font-size: 3.5rem;
+            color: var(--dorado);
+            margin-bottom: 10px;
+        }
+
+        .titulo-portada {
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            color: var(--texto-oscuro);
+            text-transform: uppercase;
+            font-weight: 300;
+            margin: 10px 0 0 0;
+        }
+
+        /* Nombre en la portada (Mejorado con nuevo espaciado y sombra más suave) */
+        .nombre-portada {
+            font-family: 'Great Vibes', cursive;
+            color: #d17896;
+            font-size: 6rem;
+            margin: 15px 0 25px 0; /* Más "aire" vertical */
+            line-height: 1;
+            text-shadow: 0px 4px 15px rgba(209, 120, 150, 0.4); /* Resplandor suave */
+        }
+
+        .fecha-portada {
+            font-size: 1.3rem;
+            letter-spacing: 5px;
+            color: var(--dorado);
+            font-weight: 600;
+            margin-bottom: 10px;
+            border-top: 1px solid var(--dorado);
+            border-bottom: 1px solid var(--dorado);
+            padding: 10px 0;
+        }
+
+        /* Botón de apertura (Mejorado con animación y espaciado de letras) */
+        .btn-abrir {
+            display: inline-block;
+            background-color: var(--dorado);
+            color: var(--blanco);
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-top: 40px;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+            animation: latido-dorado 2.5s infinite; /* Animación sutil de latido */
+        }
+
+        .btn-abrir:hover {
+            background-color: #bfa135;
+            transform: scale(1.05) !important; /* Fuerza el scale al hacer hover sobre la animación */
+            animation-play-state: paused;
+        }
+
+        /* Keyframes para la animación del botón */
+        @keyframes latido-dorado {
+            0% { transform: scale(1); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
+            50% { transform: scale(1.03); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
+        }
+
+        #portada-intro.oculto {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        /* ----------------------------------------------------- */
+
+        /* --- 2. ESTILOS DE LA INVITACIÓN PRINCIPAL --- */
         .container {
+            display: none; 
             max-width: 600px;
             margin: 40px auto;
             background-color: rgba(255, 255, 255, 0.95);
@@ -53,8 +143,13 @@
             position: relative;
         }
 
+        .container.visible {
+            display: block;
+        }
+
         .header {
             padding: 40px 20px;
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
             background-color: #fffafb;
         }
 
@@ -66,6 +161,14 @@
             font-weight: normal;
         }
 
+        .fecha-header {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #d17896;
+        }
+
         .foto-quinceanera {
             width: 260px;
             height: 360px;
@@ -75,6 +178,13 @@
             margin: 20px auto;
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
             background-color: #f0f0f0; 
+            
+            /* --- CÓDIGO AÑADIDO PARA EVITAR CLICS Y SELECCIÓN --- */
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+            /* ---------------------------------------------------- */
         }
 
         .seccion {
@@ -124,7 +234,9 @@
         }
 
         .btn-mapa {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             background-color: var(--dorado);
             color: var(--blanco);
             text-decoration: none;
@@ -132,6 +244,7 @@
             border-radius: 30px;
             font-weight: 600;
             margin-top: 15px;
+            transition: all 0.3s ease;
         }
 
         .btn-whatsapp {
@@ -157,7 +270,7 @@
             color: var(--blanco);
             height: 60px;
             border-radius: 50px;
-            display: flex;
+            display: none; 
             justify-content: center;
             align-items: center;
             padding: 0 25px;
@@ -165,10 +278,20 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             text-decoration: none;
             z-index: 1000;
-            animation: pulse-verde 2s infinite;
             transition: all 0.4s ease-in-out;
+            animation: pulse-verde 2s infinite;
             overflow: hidden;
             white-space: nowrap;
+        }
+
+        .btn-flotante-wa .texto-wa {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-left: 10px;
+            transition: all 0.3s ease-in-out;
+            opacity: 1;
+            max-width: 200px;
         }
 
         .btn-flotante-wa.contraido {
@@ -177,15 +300,10 @@
             border-radius: 50%;
         }
 
-        .btn-flotante-wa .texto-wa {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-left: 10px;
-        }
-
         .btn-flotante-wa.contraido .texto-wa {
-            display: none;
+            opacity: 0;
+            max-width: 0;
+            margin-left: 0;
         }
 
         @keyframes pulse-verde {
@@ -208,6 +326,7 @@
             border: 1px solid rgba(244, 143, 177, 0.3);
         }
 
+        /* Íconos usando FontAwesome en lugar de emojis */
         .icono {
             font-size: 2.5rem;
             color: #d17896;
@@ -218,22 +337,14 @@
             font-size: 1.8rem;
             color: #d17896;
             margin: 15px 0;
-        }
-
-        .fecha-limite {
-            color: #d17896;
-            font-weight: 600;
-            background-color: rgba(244, 143, 177, 0.1);
-            padding: 5px 10px;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 10px;
+            opacity: 0.8;
         }
 
         .animar-fade-up {
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
         }
 
         .animar-fade-up.visible {
@@ -241,108 +352,200 @@
             transform: translateY(0);
         }
         
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.3s; }
+        
         @media (max-width: 600px) {
             .btn-flotante-wa { bottom: 20px; right: 20px; height: 55px; font-size: 1.5rem; padding: 0 20px; }
             .btn-flotante-wa.contraido { width: 55px; }
+            .btn-flotante-wa .texto-wa { font-size: 0.9rem; }
+            .nombre-portada { font-size: 4.5rem; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header animar-fade-up">
-        <div class="decoracion"><i class="fa-solid fa-spa"></i></div>
-        <h1>Areli Noriega Medina</h1>
-        <img src="a-xv-front.png" alt="Foto de Areli" class="foto-quinceanera">
-    </div>
-
-    <div class="seccion animar-fade-up">
-        <p style="font-size: 0.9rem; text-transform: uppercase; color: var(--dorado);">Con la bendición de mis padres</p>
-        <div style="margin: 20px 0;">
-            <p class="nombre-padres">Antonio Noriega Gutiérrez</p>
-            <p style="margin: 5px 0; font-style: italic;">y</p>
-            <p class="nombre-padres">Verónica Medina Flores</p>
-        </div>
-        <p style="font-weight: 600;">Tengo el honor de invitarte a celebrar esta noche mágica.</p>
-    </div>
-
-    <div class="seccion animar-fade-up">
-        <h2 class="titulo-seccion">Faltan</h2>
-        <div class="contador">
-            <div class="box-tiempo"><span id="dias">00</span><span>Días</span></div>
-            <div class="box-tiempo"><span id="horas">00</span><span>Hrs</span></div>
-            <div class="box-tiempo"><span id="minutos">00</span><span>Min</span></div>
+    <div id="portada-intro">
+        <div class="portada-contenido">
+            <div class="icono-portada"><i class="fa-solid fa-crown"></i></div>
+            
+            <p class="titulo-portada">Mis XV Años</p>
+            
+            <h1 class="nombre-portada">Areli</h1>
+            
+            <p class="fecha-portada">16 • 05 • 26</p>
+            
+            <button class="btn-abrir" id="btnAbrirInvitacion">ABRIR INVITACIÓN</button>
         </div>
     </div>
-
-    <div class="seccion animar-fade-up">
-        <div style="font-size: 2.5rem; color: #d17896;"><i class="fa-solid fa-champagne-glasses"></i></div>
-        <h2 class="titulo-seccion">La Recepción</h2>
-        <p>Sábado, 16 de Mayo de 2026</p>
-        <p>A partir de las 7:30 PM</p>
-        <p style="font-weight: 600; color: var(--dorado);">Salón Emporio Eventos</p>
-        <a href="https://maps.google.com/?cid=18218610324369037617&entry=gps&g_st=ac" target="_blank" class="btn-mapa">📍 Ver Ubicación en Mapa</a>
-    </div>
-
-    <div class="seccion">
-        <div class="info-grid">
-            <div class="info-card animar-fade-up" style="transition-delay: 0.1s;">
-                <div class="icono"><i class="fa-solid fa-person-dress"></i> <i class="fa-solid fa-user-tie"></i></div>
-                <h3 style="color: var(--dorado); font-family: 'Great Vibes', cursive; font-size: 2rem;">Vestimenta</h3>
-                <p><strong>Formal</strong></p>
-                <p style="font-size: 0.85rem; margin-top: 10px;">El color <strong style="color: #d17896;">rosa</strong> está reservado para la quinceañera.</p>
+    <div class="container" id="mainContainer">
+        <div class="header animar-fade-up">
+            <div class="decoracion">
+                <i class="fa-solid fa-spa"></i>
             </div>
-            <div class="info-card animar-fade-up" style="transition-delay: 0.3s;">
-                <div class="icono"><i class="fa-regular fa-envelope"></i></div>
-                <h3 style="color: var(--dorado); font-family: 'Great Vibes', cursive; font-size: 2rem;">Regalos</h3>
-                <p><strong>Lluvia de Sobres</strong></p>
-                <p style="font-size: 0.8rem; margin-top: 10px;">Tu presencia es el mejor regalo.</p>
+            
+            <p class="fecha-header">Festeja conmigo mis XV años</p>
+            <h1>Areli Noriega Medina</h1>
+            
+            <img src="a-xv-front.png" alt="Foto de Areli" class="foto-quinceanera">
+        </div>
+
+        <div class="seccion animar-fade-up">
+            <p style="font-size: 1.1rem; font-weight: 300; font-style: italic; margin-bottom: 20px;">
+                "Hay momentos inolvidables que se atesoran en el corazón para siempre,<br>
+                y es una bendición poder compartirlos con las personas que más quiero."
+            </p>
+            <p style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--dorado);">
+                Con la bendición de Dios y en compañía de mis padres
+            </p>
+            <div style="margin: 20px 0;">
+                <p class="nombre-padres">Antonio Noriega Gutiérrez</p>
+                <p style="margin: 5px 0; font-style: italic;">y</p>
+                <p class="nombre-padres">Verónica Medina Flores</p>
+            </div>
+            <p style="font-weight: 600; margin-top: 20px; color: #d17896;">
+                Tenemos el honor de invitarte a celebrar esta noche mágica.
+            </p>
+        </div>
+
+        <div class="seccion animar-fade-up">
+            <h2 class="titulo-seccion">Faltan</h2>
+            <div class="contador">
+                <div class="box-tiempo"><span id="dias">00</span><span>Días</span></div>
+                <div class="box-tiempo"><span id="horas">00</span><span>Hrs</span></div>
+                <div class="box-tiempo"><span id="minutos">00</span><span>Min</span></div>
+                <div class="box-tiempo"><span id="segundos">00</span><span>Seg</span></div>
             </div>
         </div>
+
+        <div class="seccion animar-fade-up">
+            <h2 class="titulo-seccion">La Recepción</h2>
+            <div class="decoracion"><i class="fa-solid fa-champagne-glasses"></i></div>
+            <p><strong>Sábado, 16 de Mayo de 2026</strong></p>
+            <p>A partir de las <strong>7:30 PM</strong></p>
+            <p style="font-size: 1.2rem; margin-top: 15px; color: var(--dorado); font-weight: 600;">Salón Emporio Eventos</p>
+            <p style="font-size: 0.9rem;">(Únicamente recepción, no habrá ceremonia religiosa)</p>
+            <a href="https://maps.google.com/?cid=18218610324369037617&entry=gps&g_st=ac" target="_blank" class="btn-mapa">
+                <i class="fa-solid fa-location-dot"></i> Ver Ubicación en Mapa
+            </a>
+        </div>
+
+        <div class="seccion">
+            <div class="info-grid">
+                <div class="info-card animar-fade-up delay-1">
+                    <div class="icono">
+                        <i class="fa-solid fa-person-dress" style="margin-right: 5px;"></i>
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h3 style="color: var(--dorado); font-family: 'Great Vibes', cursive; font-size: 2rem; margin: 5px 0;">Vestimenta</h3>
+                    <p style="margin-bottom: 5px;"><strong>Formal</strong></p>
+                    
+                    <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(244, 143, 177, 0.5);">
+                        <p style="font-size: 0.85rem; line-height: 1.4; margin: 0;">
+                            <span style="color: #d17896; font-weight: 600;">Nota importante:</span><br>
+                            El color <strong style="color: #d17896;">rosa</strong> está reservado exclusivamente para la quinceañera.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="info-card animar-fade-up delay-2">
+                    <div class="icono"><i class="fa-regular fa-envelope"></i></div>
+                    <h3 style="color: var(--dorado); font-family: 'Great Vibes', cursive; font-size: 2rem; margin: 5px 0;">Regalos</h3>
+                    <p><strong>Lluvia de Sobres</strong></p>
+                    <p style="font-size: 0.8rem; margin-top: 10px;">El mejor regalo es tu presencia, pero si deseas tener un detalle, podrás depositarlo en el buzón del evento.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion animar-fade-up">
+            <h2 class="titulo-seccion">Confirmar Asistencia</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 10px;">Tu presencia es muy importante para mí.</p>
+            <p style="font-size: 0.9rem; margin-bottom: 25px;">Por favor, haz clic en el botón para confirmar por WhatsApp.</p>
+            
+            <a href="https://wa.me/528117492686?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV%20años%20de%20Areli.%20Mi%20nombre%20es:%20" target="_blank" class="btn-whatsapp">
+                <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
+                Confirmar Asistencia
+            </a>
+        </div>
+        
+        <div class="decoracion animar-fade-up" style="margin-top: 20px; margin-bottom: 20px;">
+            <i class="fa-solid fa-crown"></i>
+        </div>
+        <h2 class="titulo-seccion animar-fade-up" style="font-size: 3.5rem; color: #d17896;">¡Te espero!</h2>
     </div>
 
-    <div class="seccion animar-fade-up">
-        <h2 class="titulo-seccion">Confirmar Asistencia</h2>
-        <p>Tu presencia es muy importante para mí.</p>
-        <p class="fecha-limite">Favor de confirmar antes del 9 de mayo de 2026</p>
-        <br>
-        <a href="https://wa.me/528117492686?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV%20años%20de%20Areli.%20Mi%20nombre%20es:%20" target="_blank" class="btn-whatsapp">
-            <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i> Confirmar Asistencia
-        </a>
-    </div>
-    
-    <div class="decoracion animar-fade-up"><i class="fa-solid fa-crown"></i></div>
-    <h2 class="titulo-seccion animar-fade-up" style="font-size: 3.5rem; color: #d17896;">¡Te espero!</h2>
-</div>
-
-<a href="https://wa.me/528117492686?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV%20años%20de%20Areli.%20Mi%20nombre%20es:%20" target="_blank" class="btn-flotante-wa" id="btnFlotante">
-    <i class="fab fa-whatsapp"></i>
-    <span class="texto-wa">Confirmar Asistencia</span>
-</a>
+    <a href="https://wa.me/528117492686?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV%20años%20de%20Areli.%20Mi%20nombre%20es:%20" target="_blank" class="btn-flotante-wa" id="btnFlotante">
+        <i class="fab fa-whatsapp"></i>
+        <span class="texto-wa">Confirmar Asistencia</span>
+    </a>
 
 <script>
-    // Contador
-    const fin = new Date("May 16, 2026 19:30:00").getTime();
-    setInterval(() => {
-        const ahora = new Date().getTime();
-        const d = fin - ahora;
-        document.getElementById('dias').innerText = Math.floor(d/(1000*60*60*24));
-        document.getElementById('horas').innerText = Math.floor((d%(1000*60*60*24))/(1000*60*60));
-        document.getElementById('minutos').innerText = Math.floor((d%(1000*60*60))/(1000*60));
-    }, 1000);
+    // --- LÓGICA DE APERTURA DE INVITACIÓN ---
+    document.getElementById('btnAbrirInvitacion').addEventListener('click', function() {
+        const portada = document.getElementById('portada-intro');
+        const container = document.getElementById('mainContainer');
+        const btnFlotante = document.getElementById('btnFlotante');
 
-    // Animaciones Scroll
-    const obs = new IntersectionObserver(ents => {
-        ents.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-    });
-    document.querySelectorAll('.animar-fade-up').forEach(el => obs.observe(el));
+        // Desvanecer la portada
+        portada.classList.add('oculto');
 
-    // Lógica inteligente botón flotante
-    const btnFlotante = document.getElementById('btnFlotante');
-    window.addEventListener('scroll', () => {
-        if(window.scrollY > 100) btnFlotante.classList.add('contraido');
-        else btnFlotante.classList.remove('contraido');
+        // Mostrar la invitación principal
+        container.classList.add('visible');
+        
+        // Mostrar el botón flotante
+        btnFlotante.style.display = 'flex';
+
+        // Iniciar el contador y las animaciones de scroll
+        iniciarFuncionesPrincipales();
+        
+        window.scrollTo(0, 0);
     });
+
+    // --- FUNCIONES PRINCIPALES ---
+    function iniciarFuncionesPrincipales() {
+        // Contador
+        const fechaEvento = new Date("May 16, 2026 19:30:00").getTime();
+        const actualizarContador = setInterval(function() {
+            const ahora = new Date().getTime();
+            const distancia = fechaEvento - ahora;
+
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+            document.getElementById("dias").innerText = dias < 10 ? "0" + dias : dias;
+            document.getElementById("horas").innerText = horas < 10 ? "0" + horas : horas;
+            document.getElementById("minutos").innerText = minutos < 10 ? "0" + minutos : minutos;
+            document.getElementById("segundos").innerText = segundos < 10 ? "0" + segundos : segundos;
+
+            if (distancia < 0) {
+                clearInterval(actualizarContador);
+                document.querySelector(".contador").innerHTML = "<h3 style='color:var(--dorado); font-size: 1.5rem;'>¡Llegó el gran día!</h3>";
+            }
+        }, 1000);
+
+        // Animaciones Scroll y Botón Flotante
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const elementosAAnimar = document.querySelectorAll('.animar-fade-up');
+        elementosAAnimar.forEach((el) => { observer.observe(el); });
+
+        const btnFlotante = document.getElementById('btnFlotante');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 150) {
+                btnFlotante.classList.add('contraido');
+            } else {
+                btnFlotante.classList.remove('contraido');
+            }
+        });
+    }
 </script>
 
 </body>
