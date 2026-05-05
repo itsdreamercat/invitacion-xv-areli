@@ -36,7 +36,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Fondo mejorado: Gradiente radial combinado con la textura */
             background: radial-gradient(circle at center, rgba(255, 255, 255, 0.7) 0%, var(--rosa-base) 80%),
                         url('https://www.transparenttextures.com/patterns/floral-snezes.png');
             display: flex;
@@ -54,7 +53,6 @@
             align-items: center;
         }
 
-        /* Ícono de la corona usando FontAwesome */
         .icono-portada {
             font-size: 3.5rem;
             color: var(--dorado);
@@ -70,14 +68,13 @@
             margin: 10px 0 0 0;
         }
 
-        /* Nombre en la portada (Mejorado con nuevo espaciado y sombra más suave) */
         .nombre-portada {
             font-family: 'Great Vibes', cursive;
             color: #d17896;
             font-size: 6rem;
-            margin: 15px 0 25px 0; /* Más "aire" vertical */
+            margin: 15px 0 25px 0;
             line-height: 1;
-            text-shadow: 0px 4px 15px rgba(209, 120, 150, 0.4); /* Resplandor suave */
+            text-shadow: 0px 4px 15px rgba(209, 120, 150, 0.4);
         }
 
         .fecha-portada {
@@ -91,7 +88,6 @@
             padding: 10px 0;
         }
 
-        /* Botón de apertura (Mejorado con animación y espaciado de letras) */
         .btn-abrir {
             display: inline-block;
             background-color: var(--dorado);
@@ -107,16 +103,15 @@
             border: none;
             box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
             transition: all 0.3s ease;
-            animation: latido-dorado 2.5s infinite; /* Animación sutil de latido */
+            animation: latido-dorado 2.5s infinite;
         }
 
         .btn-abrir:hover {
             background-color: #bfa135;
-            transform: scale(1.05) !important; /* Fuerza el scale al hacer hover sobre la animación */
+            transform: scale(1.05) !important;
             animation-play-state: paused;
         }
 
-        /* Keyframes para la animación del botón */
         @keyframes latido-dorado {
             0% { transform: scale(1); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
             50% { transform: scale(1.03); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6); }
@@ -128,7 +123,6 @@
             visibility: hidden;
             pointer-events: none;
         }
-        /* ----------------------------------------------------- */
 
         /* --- 2. ESTILOS DE LA INVITACIÓN PRINCIPAL --- */
         .container {
@@ -178,13 +172,10 @@
             margin: 20px auto;
             box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
             background-color: #f0f0f0; 
-            
-            /* --- CÓDIGO AÑADIDO PARA EVITAR CLICS Y SELECCIÓN --- */
             pointer-events: none;
             user-select: none;
             -webkit-user-select: none;
             -webkit-user-drag: none;
-            /* ---------------------------------------------------- */
         }
 
         .seccion {
@@ -260,6 +251,19 @@
             font-size: 1.2rem;
             font-weight: 600;
             margin-top: 20px;
+        }
+
+        /* --- ESTILO PARA EL AVISO DE FECHA LÍMITE --- */
+        .aviso-confirmacion {
+            display: inline-block;
+            background-color: #fff5f7;
+            border: 1px solid var(--rosa-acento);
+            color: #d17896;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
         }
 
         .btn-flotante-wa {
@@ -339,17 +343,6 @@
             opacity: 0.8;
         }
 
-        /* --- ESTILO PARA LA FECHA LÍMITE DE CONFIRMACIÓN --- */
-        .fecha-limite {
-            color: #d17896;
-            font-weight: 600;
-            background-color: rgba(244, 143, 177, 0.1);
-            padding: 8px 15px;
-            border-radius: 8px;
-            display: inline-block;
-            margin: 10px 0;
-        }
-
         .animar-fade-up {
             opacity: 0;
             transform: translateY(40px);
@@ -378,25 +371,18 @@
     <div id="portada-intro">
         <div class="portada-contenido">
             <div class="icono-portada"><i class="fa-solid fa-crown"></i></div>
-            
             <p class="titulo-portada">Mis XV Años</p>
-            
             <h1 class="nombre-portada">Areli</h1>
-            
             <p class="fecha-portada">16 • 05 • 26</p>
-            
             <button class="btn-abrir" id="btnAbrirInvitacion">ABRIR INVITACIÓN</button>
         </div>
     </div>
+
     <div class="container" id="mainContainer">
         <div class="header animar-fade-up">
-            <div class="decoracion">
-                <i class="fa-solid fa-spa"></i>
-            </div>
-            
+            <div class="decoracion"><i class="fa-solid fa-spa"></i></div>
             <p class="fecha-header">Festeja conmigo mis XV años</p>
             <h1>Areli Noriega Medina</h1>
-            
             <img src="a-xv-front.png" alt="Foto de Areli" class="foto-quinceanera">
         </div>
 
@@ -443,13 +429,9 @@
         <div class="seccion">
             <div class="info-grid">
                 <div class="info-card animar-fade-up delay-1">
-                    <div class="icono">
-                        <i class="fa-solid fa-person-dress" style="margin-right: 5px;"></i>
-                        <i class="fa-solid fa-user-tie"></i>
-                    </div>
+                    <div class="icono"><i class="fa-solid fa-person-dress"></i> <i class="fa-solid fa-user-tie"></i></div>
                     <h3 style="color: var(--dorado); font-family: 'Great Vibes', cursive; font-size: 2rem; margin: 5px 0;">Vestimenta</h3>
                     <p style="margin-bottom: 5px;"><strong>Formal</strong></p>
-                    
                     <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(244, 143, 177, 0.5);">
                         <p style="font-size: 0.85rem; line-height: 1.4; margin: 0;">
                             <span style="color: #d17896; font-weight: 600;">Nota importante:</span><br>
@@ -457,7 +439,6 @@
                         </p>
                     </div>
                 </div>
-                
                 <div class="info-card animar-fade-up delay-2">
                     <div class="icono"><i class="fa-regular fa-envelope"></i></div>
                     <h3 style="color: var(--dorado); font-family: 'Great Vibes', cursive; font-size: 2rem; margin: 5px 0;">Regalos</h3>
@@ -469,21 +450,16 @@
 
         <div class="seccion animar-fade-up">
             <h2 class="titulo-seccion">Confirmar Asistencia</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 5px;">Tu presencia es muy importante para mí.</p>
-            
-            <p class="fecha-limite">Favor de confirmar antes del 9 de mayo de 2026</p>
-            
-            <p style="font-size: 0.9rem; margin-bottom: 25px;">Por favor, haz clic en el botón para confirmar por WhatsApp.</p>
-            
+            <div class="aviso-confirmacion">
+                <i class="fa-solid fa-calendar-check"></i> Favor de confirmar antes del 09 de mayo de 2026
+            </div>
+            <p style="font-size: 1.1rem; margin-bottom: 10px;">Tu presencia es muy importante para mí.</p>
             <a href="https://wa.me/528117492686?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV%20años%20de%20Areli.%20Mi%20nombre%20es:%20" target="_blank" class="btn-whatsapp">
-                <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
-                Confirmar Asistencia
+                <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i> Confirmar Asistencia
             </a>
         </div>
         
-        <div class="decoracion animar-fade-up" style="margin-top: 20px; margin-bottom: 20px;">
-            <i class="fa-solid fa-crown"></i>
-        </div>
+        <div class="decoracion animar-fade-up" style="margin-top: 20px;"><i class="fa-solid fa-crown"></i></div>
         <h2 class="titulo-seccion animar-fade-up" style="font-size: 3.5rem; color: #d17896;">¡Te espero!</h2>
     </div>
 
@@ -493,35 +469,23 @@
     </a>
 
 <script>
-    // --- LÓGICA DE APERTURA DE INVITACIÓN ---
     document.getElementById('btnAbrirInvitacion').addEventListener('click', function() {
         const portada = document.getElementById('portada-intro');
         const container = document.getElementById('mainContainer');
         const btnFlotante = document.getElementById('btnFlotante');
-
-        // Desvanecer la portada
         portada.classList.add('oculto');
-
-        // Mostrar la invitación principal
         container.classList.add('visible');
-        
-        // Mostrar el botón flotante
         btnFlotante.style.display = 'flex';
-
-        // Iniciar el contador y las animaciones de scroll
         iniciarFuncionesPrincipales();
-        
         window.scrollTo(0, 0);
     });
 
-    // --- FUNCIONES PRINCIPALES ---
     function iniciarFuncionesPrincipales() {
         // Contador
         const fechaEvento = new Date("May 16, 2026 19:30:00").getTime();
         const actualizarContador = setInterval(function() {
             const ahora = new Date().getTime();
             const distancia = fechaEvento - ahora;
-
             const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
             const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
@@ -538,28 +502,21 @@
             }
         }, 1000);
 
-        // Animaciones Scroll y Botón Flotante
+        // Animaciones Scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); }
             });
         }, { threshold: 0.1 });
 
-        const elementosAAnimar = document.querySelectorAll('.animar-fade-up');
-        elementosAAnimar.forEach((el) => { observer.observe(el); });
+        document.querySelectorAll('.animar-fade-up').forEach((el) => { observer.observe(el); });
 
         const btnFlotante = document.getElementById('btnFlotante');
         window.addEventListener('scroll', function() {
-            if (window.scrollY > 150) {
-                btnFlotante.classList.add('contraido');
-            } else {
-                btnFlotante.classList.remove('contraido');
-            }
+            if (window.scrollY > 150) { btnFlotante.classList.add('contraido'); } 
+            else { btnFlotante.classList.remove('contraido'); }
         });
     }
 </script>
-
 </body>
 </html>
